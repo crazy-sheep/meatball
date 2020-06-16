@@ -12,9 +12,9 @@ public class MeatballApplication {
 
 
     public static void main(String[] args) {
-        Carfactory carfactory = new Carfactory();
-        NewCar bmw = carfactory.getCar("dazhong");
-        bmw.newCar();
+        //Carfactory carfactory = new Carfactory();
+        //NewCar bmw = carfactory.getCar("dazhong");
+        //bmw.newCar();
         SpringApplication.run(MeatballApplication.class, args);
     }
 
