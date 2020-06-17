@@ -13,11 +13,20 @@ management:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/meatball?useUnicode=true&characterEncoding=utf-8&serverTimezone=Hongkong&useSSL=false
+    url: jdbc:mysql://47.107.177.14:3306/meatball?useUnicode=true&characterEncoding=utf-8&serverTimezone=Hongkong&useSSL=false
     username: root
     password: root
   jpa:
     hibernate:
       ddl-auto: create
     show-sql: true
-
+  redis:
+    host: 47.107.177.14
+    port: 6397
+    password: root
+    database: 1
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 500
