@@ -1,4 +1,4 @@
-package com.eureka.client;
+package com.eureka.client.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.*;
 public class testController {
     @Value("${server.port}")
     private String port;
-    @GetMapping("/hi/{name}")
-    public String home(@PathVariable String name){
+    @GetMapping("/hi")
+    public String home(@RequestParam String name){
         return name + ":端口号是" + port;
     }
 

@@ -1,10 +1,11 @@
-package com.demo.meatball;
+package com.eureka.ribbon;
+
 
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MeatballApplicationTests {
+class RibbonApplicationTests {
 
     @Test
     void contextLoads() {
