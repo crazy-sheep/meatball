@@ -13,6 +13,8 @@
     
     4.设计模式示例
         com.demo.meatball.factory 工厂模式示例
+        
+    5.语音转换文字小demo
 
 二、eureka-client eureka-server module
 
