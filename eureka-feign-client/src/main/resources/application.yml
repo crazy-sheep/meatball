@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: eureka-feign-client
+server:
+  port: 8806
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8801/eureka/
