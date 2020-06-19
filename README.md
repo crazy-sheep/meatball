@@ -14,7 +14,7 @@
     4.设计模式示例
         com.demo.meatball.factory 工厂模式示例
         
-    5.语音转换文字小demo
+    5.语音 转换 文字小demo
 
 二、eureka-client eureka-server module
 
@@ -28,3 +28,16 @@
 
 
 
+
+
+
+
+
+last:个人笔记:
+
+    eureka:只是服务端与客户端
+    
+    ribbon:具体 负载均衡 的操作是ribbon在做
+    
+    feign:具有远程调用功能,并且具有负载均衡能力,因为feign起步依赖,默认引入Ribbon 和 Hystrix(熔断器) 依赖
+    
