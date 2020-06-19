@@ -9,7 +9,11 @@ public class testController {
     private String port;
     @GetMapping("/hi")
     public String home(@RequestParam String name){
-        return name + ":端口号是" + port;
+        return name + ":端口号是" + port+ "============>hi";
     }
 
+    @GetMapping("/ha")
+    public String ha(@RequestParam String name){
+        return name + ":端口号是" + port + "============>ha";
+    }
 }

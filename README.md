@@ -20,9 +20,20 @@
 
     1.服务的注册与发现 Eureka示例
 
-三、 ribbon-client module
+三、ribbon-client module
 
     1.负载均衡 Ribbon示例,使用RestTemplate 和 Ribbon 消费服务
+四、eureka-feign-client module
+    
+    feign实现过程:
+        1.通过@EableFeignClients 注解 开启FeignClient功能,有这个注解,程序会在启动时开启对@FeignClient注解
+        2.根据Feign 的规则实现接口,并在接口上面加上@FeignClient 注解
+        3.启动容器后,会进行包扫描,扫描所有@FeignClient的注解类,并将这些信息注入IoC容器中
+        4.当接口的方法被调用,通过JDK的代理来生成具体的RequestTempplate 模板对象
+        5根据RequestTempplate 再生成Http请求的Request对象
+        6.Request 对象交给Client 去处理,
+        7.最后Client被封装到LoadBalanceClient类,这个类结合类Ribbon做到负载均衡
+待做、 JFrame简单使用(//todo)
 
 
 

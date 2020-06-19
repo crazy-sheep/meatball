@@ -1,11 +1,11 @@
 package com.eureka.ribbon.controller;
 
 import com.eureka.ribbon.service.RibbonService;
-import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
 
@@ -13,8 +13,14 @@ import javax.annotation.Resource;
 public class RibbonController {
     @Resource
     private RibbonService ribbonService;
+
+    @Resource
+    private RestTemplate restTemplate;
+
     @Resource
     private LoadBalancerClient loadBalancerClient;
+
+
     public RibbonController(RibbonService ribbonService) {
         this.ribbonService = ribbonService;
     }
