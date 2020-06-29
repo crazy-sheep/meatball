@@ -7,6 +7,52 @@ import org.bytedeco.javacv.*;
 import javax.swing.*;
 
 public class videoTest {
+    /**
+     * 按帧录制视频
+     * @param inputFile-该地址可以是网络直播/录播地址，也可以是远程/本地文件路径
+     * @param outputFile
+     * -该地址只能是文件地址，如果使用该方法推送流媒体服务器会报错，原因是没有设置编码格式
+     * @throws FrameGrabber.Exception
+     * @throws FrameRecorder.Exception
+     * @throws org.bytedeco.javacv.FrameRecorder.Exception
+     */
+    public static void frameRecord(String inputFile, String outputFile, int audioChannel)
+            throws Exception, org.bytedeco.javacv.FrameRecorder.Exception {
+
+        boolean isStart=true;//该变量建议设置为全局控制变量，用于控制录制结束
+        // 获取视频源
+        FFmpegFrameGrabber grabber = new FFmpegFrameGrabber(inputFile);
+        // 流媒体输出地址，分辨率（长，高），是否录制音频（0:不录制/1:录制）
+        FFmpegFrameRecorder recorder = new FFmpegFrameRecorder(outputFile, 1280, 720, audioChannel);
+        // 开始取视频源
+        recordByFrame(grabber, recorder, isStart);
+    }
+
+    /**
+     * 开始取视频源
+     * @param grabber
+     * @param recorder
+     * @param status
+     * @throws Exception
+     * @throws org.bytedeco.javacv.FrameRecorder.Exception
+     */
+    private static void recordByFrame(FFmpegFrameGrabber grabber, FFmpegFrameRecorder recorder, Boolean status)
+            throws Exception, org.bytedeco.javacv.FrameRecorder.Exception {
+        try {//建议在线程中使用该方法
+            grabber.start();
+            recorder.start();
+            Frame frame = null;
+            while (status&& (frame = grabber.grabFrame()) != null) {
+                recorder.record(frame);
+            }
+            recorder.stop();
+            grabber.stop();
+        } finally {
+            if (grabber != null) {
+                grabber.stop();
+            }
+        }
+    }
 
     /**
      * 按帧录制本机摄像头视频（边预览边录制，停止预览即停止录制）
@@ -57,10 +103,24 @@ public class videoTest {
         grabber.close();//关闭抓取器
 
     }
+
+    /**
+     * 测试录制视频并保存视频
+     * @param args
+     * @throws Exception
+     * @throws InterruptedException
+     * @throws org.bytedeco.javacv.FrameRecorder.Exception
+     */
     public static void main2(String[] args) throws Exception, InterruptedException, org.bytedeco.javacv.FrameRecorder.Exception {
         recordCamera("output.mp4",25);
     }
 
+    /**
+     * 获取本地摄像头测试
+     * @param args
+     * @throws Exception
+     * @throws InterruptedException
+     */
     public static void main(String[] args) throws Exception, InterruptedException{
         //新建opencv抓取器，一般的电脑和移动端设备中摄像头默认序号是0，不排除其他情况
         OpenCVFrameGrabber grabber = new OpenCVFrameGrabber(0);
@@ -80,7 +140,6 @@ public class videoTest {
             Frame grab = grabber.grab();
             //frame=grabber.grab(); //frame是一帧视频图像
         }
-        //SpringApplication.run(MeatballApplication.class, args);
     }
 
 }
