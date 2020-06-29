@@ -15,6 +15,8 @@
         com.demo.meatball.factory 工厂模式示例
         
     5.语音 转换 文字小demo
+    
+    6.录制功能和推流功能测试阶段
 
 二、eureka-client eureka-server module
 
