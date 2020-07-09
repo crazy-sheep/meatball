@@ -1,4 +1,4 @@
-package com.demo.meatball.factory.Impl;
+package com.demo.meatball.factory;
 
 
 import com.demo.meatball.factory.NewCar;
