@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="demo" />
+        <module name="eureka-server" />
+        <module name="eureka-client" />
+        <module name="eureka-feign-client" />
+        <module name="eureka-ribbon-client" />
+        <module name="ribbon-client" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="demo" target="1.8" />
+      <module name="eureka-client" target="1.8" />
+      <module name="eureka-feign-client" target="1.8" />
+      <module name="eureka-ribbon-client" target="1.8" />
+      <module name="eureka-server" target="1.8" />
+      <module name="meatball" target="1.8" />
+      <module name="ribbon-client" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="demo" options="-parameters" />
+      <module name="eureka-client" options="-parameters" />
+      <module name="eureka-feign-client" options="-parameters" />
+      <module name="eureka-ribbon-client" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="meatball" options="" />
+      <module name="ribbon-client" options="-parameters" />
+    </option>
+  </component>
+</project>
