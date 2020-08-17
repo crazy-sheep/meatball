@@ -25,7 +25,7 @@ public class UserInfo {
     @NotBlank(message = "密码不能为空")
     @Column
     @ApiModelProperty(value = "密码")
-    private String passWord;
+    private String password;
     
     @Column
     @ApiModelProperty(value = "手机号")

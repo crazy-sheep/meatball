@@ -1,4 +1,5 @@
 <template>
+
   <div id="login">
     <el-main >
       <div style="width: 450px; margin-left: 35%; ">
@@ -67,8 +68,10 @@
 
             this.userInfo.account = CryptoJS.MD5(this.userInfo.account).toString();
             this.userInfo.password = CryptoJS.MD5(this.userInfo.password).toString();
-            this.axios.post('http://localhost:8866/login', this.userInfo).then(res => {
-              if (res.data.code === '200'){
+            this.axios.post('/server/server/login', this.userInfo).then(res => {
+              debugger
+              if (res.data.code === 200){
+                localStorage.setItem("token","123");
                 this.$router.push({ path:'/index'  })
               }else {
                 console.log(res.data.msg);

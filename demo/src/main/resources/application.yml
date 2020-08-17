@@ -1,5 +1,7 @@
 server:
   port: 8866
+  servlet:
+    context-path: /server
 management:
   endpoints:
     web:
@@ -12,13 +14,13 @@ management:
       enabled: true
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://47.107.177.14:3306/meatball?useUnicode=true&characterEncoding=utf-8&serverTimezone=Hongkong&useSSL=false
     username: root
     password: root123
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: true
   redis:
     host: 47.107.177.14
